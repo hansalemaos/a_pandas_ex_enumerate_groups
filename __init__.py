@@ -29,7 +29,10 @@ def enumerate_groups(dframe, enumerated_column, column_to_enumerate):
         col = gdf.columns[0]
     soind = gdf[col].value_counts().index.sort_values(0)
     soind1_ = soind[-1]
-    soind2_ = soind[-2]
+    try:
+        soind2_ = soind[-2]
+    except Exception:
+        soind2_ = soind[-1]
     nafill = soind1_ + soind2_
     gdf = gdf.sort_values(by=col)
     df = gdf.copy()
