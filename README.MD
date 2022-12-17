@@ -92,4 +92,37 @@ print(dfi[:20].to_string())
 818          819         0       3  Holm, Mr. John Fredrik Alexander  male  43.0      0      0  C 7075  6.4500          NaN        S       5
 
 
+df.d_enumerate_all_groups_in_all_columns(prefix="group_")
+Out[4]: 
+     PassengerId  Survived  Pclass  ... group_Fare group_Cabin  group_Embarked
+0              1         0       3  ...         18         NaN             2.0
+1              2         1       1  ...        207        81.0             0.0
+2              3         1       3  ...         41         NaN             2.0
+3              4         1       1  ...        189        55.0             2.0
+4              5         0       3  ...         43         NaN             2.0
+..           ...       ...     ...  ...        ...         ...             ...
+886          887         0       2  ...         85         NaN             2.0
+887          888         1       1  ...        153        30.0             2.0
+888          889         0       3  ...        131         NaN             2.0
+889          890         1       1  ...        153        60.0             0.0
+890          891         0       3  ...         30         NaN             1.0
+[891 rows x 24 columns]
+
+
+df.d_enumerate_groups_in_multiple_columns(columns=[['Pclass','Survived']], prefix="group_", name_sep="_")
+Out[7]: 
+     PassengerId  Survived  Pclass  ... Cabin Embarked  group_Pclass_Survived
+0              1         0       3  ...  <NA>        S                      4
+1              2         1       1  ...   C85        C                      1
+2              3         1       3  ...  <NA>        S                      5
+3              4         1       1  ...  C123        S                      1
+4              5         0       3  ...  <NA>        S                      4
+..           ...       ...     ...  ...   ...      ...                    ...
+886          887         0       2  ...  <NA>        S                      2
+887          888         1       1  ...   B42        S                      1
+888          889         0       3  ...  <NA>        S                      4
+889          890         1       1  ...  C148        C                      1
+890          891         0       3  ...  <NA>        Q                      4
+[891 rows x 13 columns]
+
 ```
